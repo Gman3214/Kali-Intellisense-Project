@@ -1,0 +1,38 @@
+#compdef hydra
+
+_arguments -C \
+  '-R[Restore a previous aborted/crashed session]' \
+  '-I[Ignore an existing restore file]' \
+  '-S[Perform an SSL connect]' \
+  '-s[Define port if the service is on a different default port]:port number' \
+  '-l[Login with LOGIN name]:login name' \
+  '-L[Load several logins from FILE]:login file:_files' \
+  '-p[Try password PASS]:password' \
+  '-P[Load several passwords from FILE]:password file:_files' \
+  '-x[Password bruteforce generation]:bruteforce options' \
+  '-y[Disable use of symbols in bruteforce]' \
+  '-r[Use a non-random shuffling method for option -x]' \
+  '-e[Try null password, login as pass, and/or reversed login]:null/pass/reversed' \
+  '-u[Loop around users, not passwords]' \
+  '-C[Colon separated "login:pass" format]:file:_files' \
+  '-M[List of servers to attack]:server file:_files' \
+  '-o[Write found login/password pairs to FILE]:output file:_files' \
+  '-b[Specify the format for the -o FILE]:format (text, json, jsonv1)' \
+  '-f[Exit when a login/pass pair is found]' \
+  '-F[Global exit when a login/pass pair is found]' \
+  '-t[Run number of connects in parallel per target]:number of tasks' \
+  '-T[Run number of connects in parallel overall]:number of tasks' \
+  '-w[Wait time for a response]:time' \
+  '-W[Wait time between connects per thread]:time' \
+  '-c[Wait time per login attempt over all threads]:time' \
+  '-4[Use IPv4 addresses]' \
+  '-6[Use IPv6 addresses]' \
+  '-v[Verbose mode]' \
+  '-V[Show login+pass for each attempt]' \
+  '-d[Debug mode]' \
+  '-O[Use old SSL v2 and v3]' \
+  '-K[Do not redo failed attempts]' \
+  '-q[Do not print messages about connection errors]' \
+  '-U[Service module usage details]' \
+  '-m[Options specific for a module]:module options' \
+  '-h[More command line options]' 

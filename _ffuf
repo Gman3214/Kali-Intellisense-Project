@@ -42,4 +42,7 @@ _arguments -C \
   '-scrapers[Active scraper groups]' \
   '-t[Number of concurrent threads]:threads' \
   '-v[Verbose mode]' \
+  '--example-subdomain-fuzz[Example for subdomain fuzzing]' \
+  '--example-dir-fuzz[Example for directory fuzzing]' \
+  '--example-post-request[Example for POST request with username and password]' \
   '*:file:_files'

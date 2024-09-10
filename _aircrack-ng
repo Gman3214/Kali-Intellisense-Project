@@ -1,0 +1,46 @@
+#compdef aircrack-ng
+
+_arguments -C \
+  '-a[Force attack mode (1/WEP, 2/WPA-PSK)]:attack mode:(1 2)' \
+  '-e[Target selection: network identifier]:network identifier' \
+  '-b[Target selection: access point MAC]:MAC address' \
+  '-p[Number of CPUs to use]:number of CPUs' \
+  '-q[Enable quiet mode]' \
+  '-C[Merge the given APs to a virtual one]:MACs file:_files' \
+  '-l[Write key to file]:key file:_files' \
+  '-c[Search alpha-numeric characters only]' \
+  '-t[Search binary coded decimal characters only]' \
+  '-h[Search the numeric key for Fritz!BOX]' \
+  '-d[Use masking of the key]:mask' \
+  '-m[MAC address to filter usable packets]:MAC address' \
+  '-n[WEP key length]:length:(64 128 152 256 512)' \
+  '-i[WEP key index (1 to 4), default: any]:index' \
+  '-f[Bruteforce fudge factor, default: 2]:fudge factor' \
+  '-k[Disable one attack method (1 to 17)]:attack method' \
+  '-x[Disable bruteforce for last keybytes]' \
+  '-x1[Last keybyte bruteforcing (default)]' \
+  '-x2[Enable last 2 keybytes bruteforcing]' \
+  '-X[Disable bruteforce multithreading]' \
+  '-y[Experimental single bruteforce mode]' \
+  '-K[Use only old KoreK attacks (pre-PTW)]' \
+  '-s[Show the key in ASCII while cracking]' \
+  '-M[Specify maximum number of IVs to use]:number of IVs' \
+  '-D[WEP decloak, skips broken keystreams]' \
+  '-P[PTW debug: 1: disable Klein, 2: PTW]:PTW debug mode:(1 2)' \
+  '-1[Run only 1 try to crack key with PTW]' \
+  '-V[Run in visual inspection mode]' \
+  '-w[Path to wordlist(s) filename(s)]:wordlist file:_files' \
+  '-N[Path to new session filename]:new session file:_files' \
+  '-R[Path to existing session filename]:existing session file:_files' \
+  '-E[Create EWSA Project file v3]:EWSA Project file:_files' \
+  '-I[PMKID string (hashcat -m 16800)]:PMKID string' \
+  '-j[Create Hashcat v3.6+ file (HCCAPX)]:HCCAPX file:_files' \
+  '-J[Create Hashcat file (HCCAP)]:HCCAP file:_files' \
+  '-S[WPA cracking speed test]' \
+  '-Z[WPA cracking speed test length of execution]:length of execution' \
+  '-r[Path to airolib-ng database]:database file:_files' \
+  '--simd-list[Show a list of the available SIMD architectures]' \
+  '--simd[Use specific SIMD architecture]:SIMD architecture:(generic avx512 avx2 avx sse2 altivec power8 asimd neon)' \
+  '-u[Displays # of CPUs & SIMD support]' \
+  '--help[Displays this usage screen]' \
+  '*::input file(s):_files'
