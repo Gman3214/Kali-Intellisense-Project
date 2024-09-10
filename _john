@@ -9,10 +9,10 @@ _arguments -C \
   '--single-user-seed=[Wordlist with seeds per username]:file:_files' \
   '--single-pair-max=[Override max number of word pairs generated]:N' \
   '--no-single-pair[Disable single word pair generation]' \
-  '--[no-]single-retest-guess[Override config for SingleRetestGuess]' \
-  '--wordlist[=FILE] --stdin[Wordlist mode, read words from FILE or stdin]:file:_files' \
+  '--wordlist=[Wordlist mode, read words from FILE]:file:_files' \
+  '--stdin[Read words from stdin]' \
   '--pipe[like --stdin, but bulk reads and allows rules]' \
-  '--rules[=SECTION[,..]][Enable word mangling rules using default or named rules]:section' \
+  '--rules[Enable word mangling rules using default or named rules]:section' \
   '--rules=:rule[Enable immediate word mangling rules]:rule' \
   '--rules-stack=[Stacked rules applied after regular rules]:section' \
   '--rules-stack=:rule[Immediate stacked rules applied]:rule' \
@@ -48,7 +48,8 @@ _arguments -C \
   '--session=[Give a new session the NAME]:NAME' \
   '--status=[Print status of a session]:NAME' \
   '--restore=[Restore an interrupted session]:NAME' \
-  '--[no-]crack-status[Emit a status line whenever a password is cracked]' \
+  '--crack-status[Emit a status line whenever a password is cracked]' \
+  '--no-crack-status[Do not emit a status line whenever a password is cracked]' \
   '--progress-every=[Emit a status line every N seconds]:N' \
   '--show=[Show cracked passwords or information]:(left formats invalid)' \
   '--test=[Run tests and benchmarks for TIME seconds]:TIME' \
@@ -60,10 +61,10 @@ _arguments -C \
   '--groups=[Load users of this group(s) only]:GID' \
   '--shells=[Load users with this shell(s) only]:SHELL' \
   '--salts=[Load salts with COUNT hashes]:COUNT[:MAX]' \
-  '--salts=#M[-N][Load most populated salts M to N]:M[-N]' \
+  '--salts=[Load most populated salts M to N]:M[-N]' \
   '--costs=[Load salts with cost value]:C[:M][,...]' \
   '--fork=[Fork N processes]:N' \
-  '--node=[This node's number range out of TOTAL]:MIN[-MAX]/TOTAL' \
+  '--node=[This nodes number range out of TOTAL]:MIN[-MAX]/TOTAL' \
   '--save-memory=[Enable memory saving at LEVEL 1..3]:LEVEL' \
   '--log-stderr[Log to screen instead of file]' \
   '--verbosity=[Change verbosity level (1-5 or 6 for debug, default 3)]:N' \
@@ -77,7 +78,8 @@ _arguments -C \
   '--target-encoding=[Output encoding used by format]:NAME' \
   '--force-tty[Set up terminal for reading keystrokes even if not foreground process]' \
   '--field-separator-char=[Use this character instead of ":" in input and pot files]:C' \
-  '--[no-]keep-guessing[Try finding plaintext collisions]' \
+  '--keep-guessing[Try finding plaintext collisions]' \
+  '--no-keep-guessing[Try finding plaintext collisions]' \
   '--list=[List capabilities]:WHAT' \
   '--length=[Shortcut for --min-len and --max-len]:N' \
   '--min-length=[Minimum candidate length in bytes]:N' \
