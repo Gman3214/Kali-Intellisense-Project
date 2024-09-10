@@ -1,0 +1,25 @@
+#compdef remove-host
+
+
+_get_hosts_and_ips_separate() {
+  local expl ip_list host_list
+  local raw_list
+
+  # Extract raw lines from /etc/hosts
+  raw_list=(${(f)"$(</etc/hosts)"})
+  raw_list=(${raw_list%%\#*})            # Remove comments
+  raw_list=(${raw_list//[[:blank:]]+/ })  # Normalize spaces
+  raw_list=(${raw_list:#(#s)[^0-9]*})     # Keep only valid lines starting with an IP
+
+  # Separate IP addresses and hostnames
+  ip_list=(${raw_list%%[[:blank:]]*})     # Extract only IP addresses
+  host_list=(${(s: :)${raw_list#*[[:blank:]]}}) # Extract hostnames
+
+  # Complete both IP addresses and hostnames
+  _wanted hosts expl 'IP addresses and hostnames' \
+      compadd -M 'm:{a-zA-Z}={A-Za-z}' -a ip_list -a host_list
+}
+
+
+_arguments \
+  '1:hostname or ip address:_get_hosts_and_ips_separate'

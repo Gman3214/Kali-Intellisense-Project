@@ -1,6 +1,20 @@
 #compdef ffuf
 
-_arguments -C \
+_ffuf_examples() {
+  local expl
+  # Example command completions
+  local -a examples
+  examples=(
+    '-u http://10.10.10.10 -H "Host: FUZZ.example.com" -w /usr/share/wordlists -ac'
+    '-u https://FUZZ.example.com -w /usr/share/wordlists/dns.txt -ac'
+    '-u http://10.10.10.10 -w /usr/share/wordlists/common.txt -fc 403'
+  )
+
+  _wanted examples expl 'FFUF example commands' \
+      compadd -M 'm:{a-zA-Z}={A-Za-z}' -a examples
+}
+_arguments \
+  '1:example command:_ffuf_examples' \
   '-u[Target URL]:URL:_urls' \
   '-w[Wordlist]:wordlist:_files' \
   '-X[HTTP method]:HTTP method:(GET POST PUT DELETE)' \

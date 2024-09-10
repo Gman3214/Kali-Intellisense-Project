@@ -1,0 +1,19 @@
+#compdef add-host
+
+_get_hosts_ips() {
+  local expl ip_list
+  # Extract IPs from /etc/hosts
+  ip_list=(${(f)"$(</etc/hosts)"})
+  ip_list=(${ip_list%%\#*})            # Remove comments
+  ip_list=(${ip_list//[[:blank:]]+/ })  # Normalize spaces
+  ip_list=(${ip_list:#(#s)[^0-9]*})     # Only keep lines starting with an IP
+  ip_list=(${ip_list[@]%%[[:blank:]]*}) # Remove everything after the IP part
+
+  # Complete the IP addresses
+  _wanted hosts expl 'IP address' \
+      compadd -M 'm:{a-zA-Z}={A-Za-z}' -a ip_list
+}
+
+_arguments \
+  '1:hostname' \
+  '2:IP address:_get_hosts_ips'

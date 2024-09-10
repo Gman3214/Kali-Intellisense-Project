@@ -1,0 +1,48 @@
+function add-host() {
+    if [ "$#" -ne 2 ]; then
+        echo "Usage: sudo hosts_add <hostname> <ip>"
+        return 1
+    fi
+    
+    if grep -q "$2" /etc/hosts; then
+        # If IP exists, append the hostname to the same line
+        if grep -q "$1" /etc/hosts; then
+            echo "$1 already exists with IP $2"
+        else
+            sudo sed -i "/$2/s/$/ $1/" /etc/hosts
+            echo "Added $1 to IP $2 in /etc/hosts"
+        fi
+    else
+        # If IP doesn't exist, create a new entry
+        echo "$2    $1" | sudo tee -a /etc/hosts > /dev/null
+        echo "Added $1 with IP $2 to /etc/hosts"
+    fi
+}
+
+# Remove a hostname from the /etc/hosts file
+function remove-host() {
+    if [ "$#" -ne 1 ]; then
+        echo "Usage: sudo hosts_del <hostname|ip>"
+        return 1
+    fi
+    
+    if echo "$1" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$'; then
+        # If an IP is provided, delete the entire line
+        if grep -q "$1" /etc/hosts; then
+            sudo sed -i "/$1/d" /etc/hosts
+            echo "Removed all hosts associated with IP $1 from /etc/hosts"
+        else
+            echo "IP $1 not found in /etc/hosts"
+        fi
+    else
+        # If a hostname is provided, delete only that hostname
+        if grep -q "$1" /etc/hosts; then
+            sudo sed -i "s/\<$1\>//g" /etc/hosts
+            sudo sed -i '/^[[:space:]]*$/d' /etc/hosts  # Clean up empty lines if necessary
+            echo "Removed $1 from /etc/hosts"
+        else
+            echo "Hostname $1 not found in /etc/hosts"
+        fi
+    fi
+}
+

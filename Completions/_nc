@@ -1,0 +1,25 @@
+#compdef nc
+
+_arguments \
+  '-c[shell commands to exec after connect, use /bin/sh]:command:' \
+  '-e[program to exec after connect]:filename:_files' \
+  '-b[allow broadcasts]' \
+  '-g[source-routing hop points, up to 8]:gateway:' \
+  '-G[source-routing pointer: 4, 8, 12, ...]:pointer:' \
+  '-h[show help]' \
+  '-i[delay interval for lines sent or ports scanned]:interval (seconds):' \
+  '-k[set keepalive option on socket]' \
+  '-l[listen mode, for inbound connects]' \
+  '-n[numeric-only IP addresses, no DNS]' \
+  '-o[hex dump of traffic to file]:file:_files' \
+  '-p[local port number]:port:' \
+  '-r[randomize local and remote ports]' \
+  '-q[quit after EOF on stdin and delay of secs]:delay (seconds):' \
+  '-s[local source address]:source address:' \
+  '-T[set Type of Service]:Type of Service:' \
+  '-t[answer TELNET negotiation]' \
+  '-u[UDP mode]' \
+  '-v[verbose mode, use twice for more verbose]' \
+  '-w[timeout for connects and final net reads]:timeout (seconds):' \
+  '-C[Send CRLF as line-ending]' \
+  '-z[zero-I/O mode, used for scanning]' 
