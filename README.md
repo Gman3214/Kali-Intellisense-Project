@@ -1,4 +1,4 @@
-# Kali Intellisense Project
+# The Kali Intellisense Project (KIP) ⚡
 
 ## Overview
 
