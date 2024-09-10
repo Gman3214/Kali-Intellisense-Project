@@ -6,7 +6,7 @@ The **Kali Intellisense Project** is designed to enhance the user experience for
 
 ### Why Kali Intellisense?
 
-As a penetration tester, it’s challenging to keep up with the constant flow of new tools being developed. On top of that, each tool comes with its own extensive list of flags and options, making it even harder to manage everything. The **Kali Intellisense Project** aims to solve this by providing a streamlined autocomplete experience directly within the terminal. It helps users by auto-suggesting tools and flags as they type, significantly reducing the time spent looking up documentation.
+As a penetration tester, it’s challenging to keep up with the constant flow of new tools being developed. On top of that, each tool comes billions and billions and billions... of flags and options, making it even harder to manage everything. The **Kali Intellisense Project** aims to solve this by providing a streamlined autocomplete experience directly within the terminal. It helps users by auto-suggesting tools and flags as they type, significantly reducing the time spent looking up documentation.
 
 ## Features
 
