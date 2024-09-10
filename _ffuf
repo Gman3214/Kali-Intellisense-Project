@@ -1,0 +1,45 @@
+#compdef ffuf
+
+_arguments -C \
+  '-u[Target URL]:URL:_urls' \
+  '-w[Wordlist]:wordlist:_files' \
+  '-X[HTTP method]:HTTP method:(GET POST PUT DELETE)' \
+  '-H[Header]:header' \
+  '-b[Cookie data]:cookie' \
+  '-cc[Client cert for authentication]:certificate:_files' \
+  '-ck[Client key for authentication]:key:_files' \
+  '-d[POST data]:post data' \
+  '-http2[Use HTTP2 protocol]' \
+  '-ignore-body[Do not fetch response content]' \
+  '-r[Follow redirects]' \
+  '-raw[Do not encode URI]' \
+  '-recursion[Scan recursively (only FUZZ keyword)]' \
+  '-recursion-depth[Max recursion depth]:depth' \
+  '-recursion-strategy[Recursion strategy]:strategy:(default greedy)' \
+  '-replay-proxy[Replay matched requests via this proxy]:proxy:_urls' \
+  '-sni[Target TLS SNI (no FUZZ support)]' \
+  '-timeout[Request timeout in seconds]:timeout' \
+  '-x[Proxy URL]:proxy:_urls' \
+  '-V[Show version information]' \
+  '-ac[Auto-calibrate filtering options]' \
+  '-acc[Custom auto-calibration string]' \
+  '-ach[Per-host auto-calibration]' \
+  '-ack[Auto-calibration keyword]:keyword' \
+  '-acs[Custom auto-calibration strategies]' \
+  '-c[Colorize output]' \
+  '-config[Load configuration from a file]:config:_files' \
+  '-json[Output JSON format]' \
+  '-maxtime[Maximum process time in seconds]:time' \
+  '-maxtime-job[Maximum time per job in seconds]:time' \
+  '-noninteractive[Disable interactive console]' \
+  '-p[Delay between requests]:delay' \
+  '-rate[Requests per second]:rate' \
+  '-s[Silent mode]' \
+  '-sf[Stop if >95% responses return 403]' \
+  '-se[Stop on spurious errors]' \
+  '-sa[Stop on all errors (implies -sf and -se)]' \
+  '-scraperfile[Path to scraper file]:scraperfile:_files' \
+  '-scrapers[Active scraper groups]' \
+  '-t[Number of concurrent threads]:threads' \
+  '-v[Verbose mode]' \
+  '*:file:_files'

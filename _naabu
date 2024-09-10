@@ -1,0 +1,36 @@
+#compdef naabu
+
+_arguments -C \
+  '-host[Host to scan ports for]:string' \
+  '-l[list of hosts to scan ports]:file:_files' \
+  '-eh[Comma-separated list of targets to exclude from scan]:string' \
+  '-ef[File with targets to exclude from scan]:file:_files' \
+  '-p[Ports to scan (e.g., 80, 443, 100-200)]:ports' \
+  '-tp[Top ports to scan (default top 100)]:string' \
+  '-ep[Ports to exclude from scan]:string' \
+  '-pf[File containing ports to scan for]:file:_files' \
+  '-ec[Skip full port scans for CDNs]' \
+  '-c[General internal worker threads (default 25)]:int' \
+  '-rate[Rate of port scan probe request (default 1000)]:int' \
+  '-o[File to write output to]:file:_files' \
+  '-json[Write output in JSON lines format]' \
+  '-scan-all-ips[Scan all the IPs]' \
+  '-s[Port scan type (SYN/CONNECT) (default SYN)]:(SYN CONNECT)' \
+  '-source-ip[Source IP to use for scanning]:string' \
+  '-il[Show available interfaces and public IP]' \
+  '-i[Network interface to use for port scan]:interface' \
+  '-nmap[Invoke nmap scan on targets]' \
+  '-nmap-cli[Custom nmap command to run on found results]:string' \
+  '-r[Custom resolvers to use (comma separated or from file)]:string' \
+  '-retries[Number of retries for the port scan (default 3)]:int' \
+  '-timeout[Timeout in milliseconds (default 1000)]:int' \
+  '-warm-up-time[Time in seconds between scan phases (default 2)]:int' \
+  '-ping[Use ping probes for host verification]' \
+  '-verify[Validate ports again with TCP verification]' \
+  '-debug[Enable debugging information]' \
+  '-v[Show verbose output]' \
+  '-nc[Disable color in output]' \
+  '-silent[Show found ports only in output]' \
+  '-version[Show version of naabu]' \
+  '-stats[Display stats of the running scan]' \
+  '*:file:_files'

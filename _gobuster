@@ -1,0 +1,92 @@
+#compdef gobuster
+
+# Define the completion options for different modes of gobuster
+local curcontext="$curcontext" state line
+
+_arguments -C \
+  '1: :->mode' \
+  '*::options:->options'
+
+case $state in
+  mode)
+    _values "gobuster mode" \
+      'dir[Directory brute-forcing]' \
+      'dns[DNS subdomain brute-forcing]' \
+      'vhost[Virtual host brute-forcing]'
+    ;;
+  options)
+    case $line[1] in
+      dir)
+        _arguments -C \
+          '-u[Target URL]:URL:_urls' \
+          '-w[Wordlist]:wordlist:_files' \
+          '-t[Number of concurrent threads]:threads' \
+          '-x[File extensions to append]:extensions' \
+          '-X[Read file extensions from a file]:_files' \
+          '-f[Append / to each request]' \
+          '-c[Cookies to use for the requests]:cookie' \
+          '--client-cert-p12[P12 file for TLS client certificates]:_files' \
+          '--client-cert-p12-password[Password for P12 file]:password' \
+          '--client-cert-pem[Public key in PEM format]:_files' \
+          '--client-cert-pem-key[Private key in PEM format]:_files' \
+          '-d[Search for backup files]' \
+          '--exclude-length[Exclude specific content lengths]:lengths' \
+          '-e[Expanded mode, print full URLs]' \
+          '-r[Follow redirects]' \
+          '-H[Specify HTTP headers]:header' \
+          '--hide-length[Hide body length in the output]' \
+          '-m[Use the following HTTP method]:method' \
+          '--no-canonicalize-headers[Do not canonicalize HTTP header names]' \
+          '-n[Dont print status codes]' \
+          '-k[Skip TLS verification]' \
+          '-P[Password for Basic Auth]:password' \
+          '--proxy[Proxy to use for requests]:proxy:_urls' \
+          '--random-agent[Use a random User-Agent string]' \
+          '--retry[Retry on request timeout]' \
+          '--retry-attempts[Retry attempts]:int' \
+          '-s[Positive status codes to display]:codes' \
+          '-b[Negative status codes (blacklist)]:codes' \
+          '--timeout[HTTP Timeout]:timeout' \
+          '-a[User-Agent to send]:user-agent' \
+          '-U[Username for Basic Auth]:username'
+        ;;
+      dns)
+        _arguments -C \
+          '-d[Target domain]:domain' \
+          '-r[Use custom DNS resolver]:resolver' \
+          '-i[Show IP addresses]' \
+          '-c[Show CNAME records]' \
+          '--no-fqdn[Do not add trailing dot to domain]' \
+          '--wildcard[Force continued operation when wildcard found]' \
+          '--timeout[DNS resolver timeout]:timeout'
+        ;;
+      vhost)
+        _arguments -C \
+          '-u[Target URL]:URL:_urls' \
+          '-w[Wordlist]:wordlist:_files' \
+          '-t[Number of concurrent threads]:threads' \
+          '--append-domain[Append main domain from URL to wordlist]' \
+          '--client-cert-p12[P12 file for TLS client certificates]:_files' \
+          '--client-cert-p12-password[Password for P12 file]:password' \
+          '--client-cert-pem[Public key in PEM format]:_files' \
+          '--client-cert-pem-key[Private key in PEM format]:_files' \
+          '-c[Cookies to use for the requests]:cookie' \
+          '--domain[Domain to append to IP address URL]:domain' \
+          '--exclude-length[Exclude specific content lengths]:lengths' \
+          '-r[Follow redirects]' \
+          '-H[Specify HTTP headers]:header' \
+          '-m[Use the following HTTP method]:method' \
+          '--no-canonicalize-headers[Do not canonicalize HTTP header names]' \
+          '-k[Skip TLS verification]' \
+          '-P[Password for Basic Auth]:password' \
+          '--proxy[Proxy to use for requests]:proxy:_urls' \
+          '--random-agent[Use a random User-Agent string]' \
+          '--retry[Retry on request timeout]' \
+          '--retry-attempts[Retry attempts]:int' \
+          '--timeout[HTTP Timeout]:timeout' \
+          '-a[User-Agent to send]:user-agent' \
+          '-U[Username for Basic Auth]:username'
+        ;;
+    esac
+    ;;
+esac

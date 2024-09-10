@@ -1,0 +1,95 @@
+#compdef john
+
+_arguments -C \
+  '--help[Print usage summary]' \
+  '--single[Single crack mode using default or named rules]:rule' \
+  '--single=:rule[Single crack mode using immediate rule(s)]:rule' \
+  '--single-seed=[Add static seed word(s) for all salts in single mode]:word[,..]' \
+  '--single-wordlist=[Short wordlist with static seed words/morphemes]:file:_files' \
+  '--single-user-seed=[Wordlist with seeds per username]:file:_files' \
+  '--single-pair-max=[Override max number of word pairs generated]:N' \
+  '--no-single-pair[Disable single word pair generation]' \
+  '--[no-]single-retest-guess[Override config for SingleRetestGuess]' \
+  '--wordlist[=FILE] --stdin[Wordlist mode, read words from FILE or stdin]:file:_files' \
+  '--pipe[like --stdin, but bulk reads and allows rules]' \
+  '--rules[=SECTION[,..]][Enable word mangling rules using default or named rules]:section' \
+  '--rules=:rule[Enable immediate word mangling rules]:rule' \
+  '--rules-stack=[Stacked rules applied after regular rules]:section' \
+  '--rules-stack=:rule[Immediate stacked rules applied]:rule' \
+  '--rules-skip-nop[Skip any NOP ":" rules]' \
+  '--loopback=[Extract words from a .pot file]:file:_files' \
+  '--mem-file-size=[Size threshold for wordlist preload (default 2048 MB)]:size' \
+  '--dupe-suppression[Suppress all dupes in wordlist and force preload]' \
+  '--incremental[Incremental mode using section MODE]:mode' \
+  '--incremental-charcount=[Override CharCount for incremental mode]:N' \
+  '--external=[External mode or word filter]:mode' \
+  '--mask[Mask mode using MASK]:mask' \
+  '--markov[Markov mode]:options' \
+  '--mkv-stats=[Markov stats file]:file:_files' \
+  '--prince=[PRINCE mode, read words from FILE]:file:_files' \
+  '--prince-loopback=[Fetch words from a .pot file]:file:_files' \
+  '--prince-elem-cnt-min=[Minimum number of elements per chain]:N' \
+  '--prince-elem-cnt-max=[Maximum number of elements per chain]:N' \
+  '--prince-skip=[Initial skip]:N' \
+  '--prince-limit=[Limit number of candidates generated]:N' \
+  '--prince-wl-dist-len[Calculate length distribution from wordlist]' \
+  '--prince-wl-max=[Load only N words from input wordlist]:N' \
+  '--prince-case-permute[Permute case of first letter]' \
+  '--prince-mmap[Memory-map infile (not available with case permute)]' \
+  '--prince-keyspace[Show total keyspace without considering skip and limit]' \
+  '--subsets=[Subsets mode]:charset' \
+  '--subsets-required=[The first N characters of subsets charset are required]:N' \
+  '--subsets-min-diff=[Minimum unique characters in subset]:N' \
+  '--subsets-max-diff=[Maximum unique characters in subset]:N' \
+  '--subsets-prefer-short[Prefer shorter candidates over smaller subsets]' \
+  '--subsets-prefer-small[Prefer smaller subsets over shorter candidates]' \
+  '--make-charset=[Make a charset, FILE will be overwritten]:file:_files' \
+  '--stdout=[Output candidate passwords and cut at LENGTH]:LENGTH' \
+  '--session=[Give a new session the NAME]:NAME' \
+  '--status=[Print status of a session]:NAME' \
+  '--restore=[Restore an interrupted session]:NAME' \
+  '--[no-]crack-status[Emit a status line whenever a password is cracked]' \
+  '--progress-every=[Emit a status line every N seconds]:N' \
+  '--show=[Show cracked passwords or information]:(left formats invalid)' \
+  '--test=[Run tests and benchmarks for TIME seconds]:TIME' \
+  '--stress-test=[Loop self-tests forever]:TIME' \
+  '--test-full=[Run more thorough self-tests]:LEVEL' \
+  '--no-mask[Use alternate benchmark without mask]' \
+  '--skip-self-tests[Skip self tests]' \
+  '--users=[Load this user(s) only]:LOGIN|UID' \
+  '--groups=[Load users of this group(s) only]:GID' \
+  '--shells=[Load users with this shell(s) only]:SHELL' \
+  '--salts=[Load salts with COUNT hashes]:COUNT[:MAX]' \
+  '--salts=#M[-N][Load most populated salts M to N]:M[-N]' \
+  '--costs=[Load salts with cost value]:C[:M][,...]' \
+  '--fork=[Fork N processes]:N' \
+  '--node=[This node's number range out of TOTAL]:MIN[-MAX]/TOTAL' \
+  '--save-memory=[Enable memory saving at LEVEL 1..3]:LEVEL' \
+  '--log-stderr[Log to screen instead of file]' \
+  '--verbosity=[Change verbosity level (1-5 or 6 for debug, default 3)]:N' \
+  '--no-log[Disable creation and writing to john.log file]' \
+  '--bare-always-valid=[Treat bare hashes as valid (Y/N)]:Y/N' \
+  '--catch-up=[Catch up with existing (paused) session NAME]:NAME' \
+  '--config=[Use FILE instead of john.conf or john.ini]:file:_files' \
+  '--encoding=[Input encoding (eg. UTF-8)]:NAME' \
+  '--input-encoding=[Alias for --encoding]:NAME' \
+  '--internal-codepage=[Codepage used in rules/masks]:NAME' \
+  '--target-encoding=[Output encoding used by format]:NAME' \
+  '--force-tty[Set up terminal for reading keystrokes even if not foreground process]' \
+  '--field-separator-char=[Use this character instead of ":" in input and pot files]:C' \
+  '--[no-]keep-guessing[Try finding plaintext collisions]' \
+  '--list=[List capabilities]:WHAT' \
+  '--length=[Shortcut for --min-len and --max-len]:N' \
+  '--min-length=[Minimum candidate length in bytes]:N' \
+  '--max-length=[Maximum candidate length in bytes]:N' \
+  '--max-candidates=[Exit after this many candidates tried]:N' \
+  '--max-run-time=[Exit after this many seconds]:N' \
+  '--mkpc=[Request a lower max keys per crypt]:N' \
+  '--no-loader-dupecheck[Disable dupe checking when loading hashes]' \
+  '--pot=[Pot file to use]:file:_files' \
+  '--regen-lost-salts=[Brute force unknown salts]:N' \
+  '--reject-printable[Reject printable binaries]' \
+  '--tune=[Tuning options]:HOW' \
+  '--subformat=[Pick a benchmark format]:FORMAT' \
+  '--format=[Force hash type]:format:(descrypt bsdicrypt md5crypt md5crypt-long bcrypt scrypt LM AFS tripcode AndroidBackup adxcrypt agilekeychain aix-ssha1 aix-ssha256 aix-ssha512 andOTP ansible argon2 as400-des as400-ssha1 asa-md5 AxCrypt AzureAD BestCrypt BestCryptVE4 bfegg Bitcoin BitLocker bitshares Bitwarden BKS Blackberry-ES10 WoWSRP Blockchain chap Clipperz cloudkeychain dynamic_n cq CRC32 cryptoSafe sha1crypt sha256crypt sha512crypt Citrix_NS10 dahua dashlane diskcryptor Django django-scrypt dmd5 dmg dominosec dominosec8 DPAPImk dragonfly3-32 dragonfly3-64 dragonfly4-32 dragonfly4-64 Drupal7 eCryptfs eigrp electrum EncFS enpass EPI EPiServer ethereum fde Fortigate256 Fortigate FormSpring FVDE geli gost gpg HAVAL-128-4 HAVAL-256-3 hdaa hMailServer hsrp IKE ipb2 itunes-backup iwork KeePass keychain keyring keystore known_hosts krb4 krb5 krb5asrep krb5pa-sha1 krb5tgs krb5-17 krb5-18 krb5-3 kwallet lp lpcli leet lotus5 lotus85 LUKS MD2 mdc2 MediaWiki monero money MongoDB scram Mozilla mscash mscash2 MSCHAPv2 mschapv2-naive krb5pa-md5 mssql mssql05 mssql12 multibit mysqlna mysql-sha1 mysql net-ah nethalflm netlm netlmv2 net-md5 netntlmv2 netntlm netntlm-naive net-sha1 nk notes md5ns nsec3 NT o10glogon o3logon o5logon ODF Office oldoffice OpenBSD-SoftRAID openssl-enc oracle oracle11 Oracle12C osc ospf Padlock Palshop Panama PBKDF2-HMAC-MD4 PBKDF2-HMAC-MD5 PBKDF2-HMAC-SHA1 PBKDF2-HMAC-SHA256 PBKDF2-HMAC-SHA512 PDF PEM pfx pgpdisk pgpsda pgpwde phpass PHPS PHPS2 pix-md5 PKZIP po postgres PST PuTTY pwsafe qnx RACF RACF-KDFAES radius RAdmin RAKP rar RAR5 Raw-SHA512 Raw-Blake2 Raw-Keccak Raw-Keccak-256 Raw-MD4 Raw-MD5 Raw-MD5u Raw-SHA1 Raw-SHA1-AxCrypt Raw-SHA1-Linkedin Raw-SHA224 Raw-SHA256 Raw-SHA3 Raw-SHA384 restic ripemd-128 ripemd-160 rsvp RVARY Siemens-S7 Salted-SHA1 SSHA512 sapb sapg saph sappse securezip 7z Signal SIP skein-256 skein-512 skey SL3 Snefru-128 Snefru-256 LastPass SNMP solarwinds SSH sspr Stribog-256 Stribog-512 STRIP SunMD5 SybaseASE Sybase-PROP tacacs-plus tcp-md5 telegram tezos Tiger tc_aes_xts tc_ripemd160 tc_ripemd160boot tc_sha512 tc_whirlpool vdi OpenVMS vmx VNC vtp wbb3 whirlpool whirlpool0 whirlpool1 wpapsk wpapsk-pmk xmpp-scram xsha xsha512 zed ZIP ZipMonster plaintext has-160 HMAC-MD5 HMAC-SHA1 HMAC-SHA224 HMAC-SHA256 HMAC-SHA384 HMAC-SHA512 dummy crypt)' \
+  '*:file:_files'
