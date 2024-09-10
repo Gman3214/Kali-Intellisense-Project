@@ -1,26 +1,12 @@
-           
-KKKKKKKKK    KKKKKKK  iiii                      
-K:::::::K    K:::::K i::::i                     
-K:::::::K    K:::::K  iiii                      
-K:::::::K   K::::::K                            
-KK::::::K  K:::::KKKiiiiiii ppppp   ppppppppp   
-  K:::::K K:::::K   i:::::i p::::ppp:::::::::p  
-  K::::::K:::::K     i::::i p:::::::::::::::::p 
-  K:::::::::::K      i::::i pp::::::ppppp::::::p
-  K:::::::::::K      i::::i  p:::::p     p:::::p
-  K::::::K:::::K     i::::i  p:::::p     p:::::p
-  K:::::K K:::::K    i::::i  p:::::p     p:::::p
-KK::::::K  K:::::KKK i::::i  p:::::p    p::::::p
-K:::::::K   K::::::Ki::::::i p:::::ppppp:::::::p
-K:::::::K    K:::::Ki::::::i p::::::::::::::::p 
-K:::::::K    K:::::Ki::::::i p::::::::::::::pp  
-KKKKKKKKK    KKKKKKKiiiiiiii p::::::pppppppp    
-                             p:::::p            
-                             p:::::p            
-                            p:::::::p           
-                            p:::::::p           
-                            p:::::::p           
-                            ppppppppp                                                  
+
+  _  __  _         
+ | |/ / (_)        
+ | ' /   _   _ __  
+ |  <   | | | '_ \ 
+ | . \  | | | |_) |
+ |_|\_\ |_| | .__/ 
+            | |    
+            |_|    
 
 # Kali Intellisense Project
 
