@@ -26,7 +26,7 @@ To install the **Kali Intellisense Project**, follow these steps:
 Run the following command in your terminal:
 
 ```bash
-curl -L https://github.com/Gman3214/Kali-Intellisense-Project/releases/download/Release/setup.sh | bash
+curl -L https://raw.githubusercontent.com/Gman3214/Kali-Intellisense-Project/main/setup.sh | bash
 ```
 
 This will automatically download and run the setup script, ensuring all dependencies are installed and the environment is configured for optimal use.
