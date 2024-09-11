@@ -67,3 +67,12 @@ List is being updated on a daily basis!!
 
 ### Dont See the tools you use ?
 Contact me ;)
+
+
+### Disclaimer
+
+This content, including scripts and examples, is provided solely for educational purposes and to aid in legal penetration testing, vulnerability assessment, and security research. The material is intended for use by professionals in controlled environments or those authorized to conduct such activities.
+
+I (the creator) am not responsible for any illegal or unethical use of the content provided here. Unauthorized access to systems, networks, or data without explicit permission from the owner is a violation of law. By using any of the information or tools provided here, you agree that it will only be used in compliance with applicable laws and regulations.
+
+It is your responsibility to ensure that your actions are ethical and lawful. The creator disclaims any liability for how the information is used or for any consequences that arise from its application.
