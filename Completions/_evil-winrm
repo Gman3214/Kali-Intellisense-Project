@@ -1,0 +1,38 @@
+#compdef evil-winrm
+
+_arguments -C \
+  '--ssl[Enable SSL]' \
+  '-S[Enable SSL]' \
+  '--pub-key[Local path to public key certificate]:PUBLIC_KEY_PATH:_files' \
+  '-c[Local path to public key certificate]:PUBLIC_KEY_PATH:_files' \
+  '--priv-key[Local path to private key certificate]:PRIVATE_KEY_PATH:_files' \
+  '-k[Local path to private key certificate]:PRIVATE_KEY_PATH:_files' \
+  '--realm[Kerberos auth (set in /etc/krb5.conf)]:DOMAIN' \
+  '-r[Kerberos auth (set in /etc/krb5.conf)]:DOMAIN' \
+  '--scripts[Powershell scripts local path]:PS_SCRIPTS_PATH:_files' \
+  '-s[Powershell scripts local path]:PS_SCRIPTS_PATH:_files' \
+  '--spn[SPN prefix for Kerberos auth (default: HTTP)]:SPN_PREFIX' \
+  '--executables[C# executables local path]:EXES_PATH:_files' \
+  '-e[C# executables local path]:EXES_PATH:_files' \
+  '--ip[Remote host IP or hostname]:IP' \
+  '-i[Remote host IP or hostname]:IP' \
+  '--url[Remote URL endpoint (default: /wsman)]:URL' \
+  '-U[Remote URL endpoint (default: /wsman)]:URL' \
+  '--user[Username (required if not using Kerberos)]:USER' \
+  '-u[Username (required if not using Kerberos)]:USER' \
+  '--password[Password]:PASS' \
+  '-p[Password]:PASS' \
+  '--hash[NTHash]:HASH' \
+  '-H[NTHash]:HASH' \
+  '--port[Remote host port (default: 5985)]:PORT' \
+  '-P[Remote host port (default: 5985)]:PORT' \
+  '--version[Show version]' \
+  '-V[Show version]' \
+  '--no-colors[Disable colors]' \
+  '-n[Disable colors]' \
+  '--no-rpath-completion[Disable remote path completion]' \
+  '-N[Disable remote path completion]' \
+  '--log[Log the WinRM session]' \
+  '-l[Log the WinRM session]' \
+  '--help[Display this help message]' \
+  '-h[Display this help message]'
