@@ -1,4 +1,5 @@
 # The Kali Intellisense Project (KIP) ⚡
+Current Build v0.2
 
 ## Overview
 
@@ -31,4 +32,38 @@ curl -L https://raw.githubusercontent.com/Gman3214/Kali-Intellisense-Project/mai
 
 This will automatically download and run the setup script, ensuring all dependencies are installed and the environment is configured for optimal use.
 
-Once installed, restart your terminal or source your Zsh configuration file to start using the Kali Intellisense features!
+### Currently Supported Tools 🦾
+
+List is being updated on a daily basis!!
+
+| Tool         | InteliSense For All Flags                           | Example Commands |
+|--------------|---------------------------------------------|---------------------|
+| aircrack-ng   | ✅ | ❌ |
+| crackmapexec   | ✅ | ❌ |
+| evil-winrm   | ✅ | ❌ |
+| ffuf         | ✅ | ✅ |
+| gobuster     | ✅ | ❌ |
+| httpx        | ✅                         | ❌                 |
+| hydra        | ✅ | ❌             |
+| john         | ✅       | ❌                 |
+| kerbrute     | ✅ | ❌               |
+| naabu        | ✅                   | ❌                 |
+| nc           | ✅                             | ❌                 |
+| nmap         | ✅                  | ❌                 |
+| nuclei       | ✅              | ❌                 |
+| remove-host  | ✅                   | ❌                 |
+| responder    | ✅                         | ❌                 |
+| sqlmap       | ✅        | ❌                 |
+| wpscan       | ✅           | ❌                 |
+
+
+
+### Synthetic sugar for penetration testers 🍭
+| Command      | Example                              | Description                                                             |
+|--------------|--------------------------------------|-------------------------------------------------------------------------|
+| add-host     | `add-host example.com 192.168.1.1` | Adds a hostname and IP to the `/etc/hosts` file. If the IP already exists, it appends the hostname to the same line. If the IP doesn't exist, it creates a new entry. |
+| remove-host  | `remove-host example.com` or `sudo remove-host 192.168.1.1` | Removes a hostname or IP from the `/etc/hosts` file. If an IP is provided, it deletes the entire line. If a hostname is provided, only the hostname is removed from the line. |
+
+
+### Dont See the tools you use ?
+Contact me ;)
