@@ -1,0 +1,148 @@
+#compdef httpx
+
+_arguments -C \
+  '-l[List of hosts to process]:file:_files' \
+  '-rr[File containing raw request]:file:_files' \
+  '-u[Input target host(s) to probe]:string[]' \
+  '-sc[Display response status code]' \
+  '-cl[Display response content length]' \
+  '-ct[Display response content type]' \
+  '-location[Display response redirect location]' \
+  '-favicon[Display mmh3 hash for /favicon.ico file]' \
+  '-hash[Display response body hash (supported: md5, mmh3, simhash, sha1, sha256, sha512)]:string' \
+  '-jarm[Display jarm fingerprint hash]' \
+  '-rt[Display response time]' \
+  '-lc[Display response body line count]' \
+  '-wc[Display response body word count]' \
+  '-title[Display page title]' \
+  '-bp[Display first N characters of response body (default 100)]' \
+  '-server[Display server name]' \
+  '-td[Display technology in use based on wappalyzer dataset]' \
+  '-method[Display http request method]' \
+  '-websocket[Display server using websocket]' \
+  '-ip[Display host IP]' \
+  '-cname[Display host CNAME]' \
+  '-extract-fqdn[Get domain and subdomains from response body and header in jsonl/csv output]' \
+  '-asn[Display host ASN information]' \
+  '-cdn[Display CDN/WAF in use]' \
+  '-probe[Display probe status]' \
+  '-ss[Enable saving screenshot of the page using headless browser]' \
+  '-system-chrome[Enable using local installed Chrome for screenshot]' \
+  '-ho[Start headless Chrome with additional options]:string[]' \
+  '-esb[Enable excluding screenshot bytes from JSON output]' \
+  '-ehb[Enable excluding headless header from JSON output]' \
+  '-st[Set timeout for screenshot in seconds (default 10)]' \
+  '-mc[Match response with specified status code]:string' \
+  '-ml[Match response with specified content length]:string' \
+  '-mlc[Match response body with specified line count]:string' \
+  '-mwc[Match response body with specified word count]:string' \
+  '-mfc[Match response with specified favicon hash]:string[]' \
+  '-ms[Match response with specified string]:string[]' \
+  '-mr[Match response with specified regex]:string[]' \
+  '-mcdn[Match host with specified CDN provider]:string[]' \
+  '-mrt[Match response with specified response time in seconds]:string' \
+  '-mdc[Match response with DSL expression condition]:string' \
+  '-er[Display response content with matched regex]:string[]' \
+  '-ep[Display response content matched by a pre-defined regex (url, ipv4, mail)]:string[]' \
+  '-fc[Filter response with specified status code]:string' \
+  '-fep[Filter response with ML-based error page detection]' \
+  '-fl[Filter response with specified content length]:string' \
+  '-flc[Filter response body with specified line count]:string' \
+  '-fwc[Filter response body with specified word count]:string' \
+  '-ffc[Filter response with specified favicon hash]:string[]' \
+  '-fs[Filter response with specified string]:string[]' \
+  '-fe[Filter response with specified regex]:string[]' \
+  '-fcdn[Filter host with specified CDN provider]:string[]' \
+  '-frt[Filter response with specified response time in seconds]:string' \
+  '-fdc[Filter response with DSL expression condition]:string' \
+  '-strip[Strips all tags in response. Supported formats: html, xml (default html)]' \
+  '-t[Number of threads to use (default 50)]:int' \
+  '-rl[Maximum requests to send per second (default 150)]:int' \
+  '-rlm[Maximum number of requests to send per minute]:int' \
+  '-pa[Probe all the IPs associated with the same host]' \
+  '-p[Ports to probe]:string[]' \
+  '-path[Path or list of paths to probe]:string' \
+  '-tls-probe[Send HTTP probes on the extracted TLS domains]' \
+  '-csp-probe[Send HTTP probes on the extracted CSP domains]' \
+  '-tls-grab[Perform TLS(SSL) data grabbing]' \
+  '-pipeline[Probe and display server supporting HTTP1.1 pipeline]' \
+  '-http2[Probe and display server supporting HTTP2]' \
+  '-vhost[Probe and display server supporting VHOST]' \
+  '-ldv[List json output field keys name that support DSL matcher/filter]' \
+  '-up[Update httpx to latest version]' \
+  '-duc[Disable automatic httpx update check]' \
+  '-o[File to write output results]:file:_files' \
+  '-oa[Filename to write output results in all formats]:file:_files' \
+  '-sr[Store HTTP response to output directory]' \
+  '-srd[Store HTTP response to custom directory]:file:_files' \
+  '-ob[Omit response body in output]' \
+  '-csv[Store output in CSV format]' \
+  '-csvo[Define output encoding]:string' \
+  '-j[Store output in JSONL(ines) format]' \
+  '-irh[Include HTTP response headers in JSON output]' \
+  '-irr[Include HTTP request/response headers + body in JSON output]' \
+  '-irrb[Include base64-encoded HTTP request/response in JSON output]' \
+  '-include-chain[Include redirect HTTP chain in JSON output]' \
+  '-store-chain[Include HTTP redirect chain in responses]' \
+  '-svrc[Include visual recon clusters (with -ss and -sr)]' \
+  '-pr[Protocol to use (unknown, http11)]:string' \
+  '-fepp[Path to store filtered error pages]:file:_files' \
+  '-config[Path to the httpx configuration file]:file:_files' \
+  '-r[Custom resolvers]:string[]' \
+  '-allow[Allowed list of IP/CIDRs to process]:string[]' \
+  '-deny[Denied list of IP/CIDRs to process]:string[]' \
+  '-sni[Custom TLS SNI name]:string' \
+  '-random-agent[Enable random User-Agent to use (default true)]' \
+  '-H[Custom HTTP headers to send with request]:string[]' \
+  '-http-proxy[HTTP proxy to use (eg http://127.0.0.1:8080)]:string' \
+  '-unsafe[Send raw requests skipping golang normalization]' \
+  '-resume[Resume scan using resume.cfg]' \
+  '-fr[Follow HTTP redirects]' \
+  '-maxr[Max number of redirects to follow per host (default 10)]:int' \
+  '-fhr[Follow redirects on the same host]' \
+  '-rhsts[Respect HSTS response headers for redirect requests]' \
+  '-vhost-input[Get a list of vhosts as input]' \
+  '-x[Request methods to probe, use "all" to probe all HTTP methods]:string' \
+  '-body[Post body to include in HTTP request]:string' \
+  '-s[Stream mode - start processing input targets without sorting]' \
+  '-sd[Disable deduplication of input items (used with stream mode)]' \
+  '-ldp[Leave default HTTP/HTTPS ports in host header]' \
+  '-ztls[Use ztls library with fallback to standard one for TLS1.3]' \
+  '-no-decode[Avoid decoding body]' \
+  '-tlsi[Enable experimental client hello (ja3) TLS randomization]' \
+  '-no-stdin[Disable stdin processing]' \
+  '-hae[HTTP API endpoint for experimental features]:string' \
+  '-health-check[Run diagnostic checkup]' \
+  '-debug[Display request/response content in CLI]' \
+  '-debug-req[Display request content in CLI]' \
+  '-debug-resp[Display response content in CLI]' \
+  '-version[Display httpx version]' \
+  '-stats[Display scan statistics]' \
+  '-profile-mem[Optional memory profile dump file]:file:_files' \
+  '-silent[Silent mode]' \
+  '-v[Verbose mode]' \
+  '-si[Number of seconds between showing a statistics update]:int' \
+  '-nc[Disable colors in CLI output]' \
+  '-nf[Display both probed protocol (HTTPS and HTTP)]' \
+  '-nfs[Probe with the protocol scheme specified in input]' \
+  '-maxhr[Max error count per host before skipping remaining paths]:int' \
+  '-e[Exclude host matching specified filter]:string[]' \
+  '-retries[Number of retries]:int' \
+  '-timeout[Timeout in seconds (default 10)]:int' \
+  '-delay[Duration between each HTTP request]:value' \
+  '-rsts[Max response size to save in bytes]:int' \
+  '-rstr[Max response size to read in bytes]:int' \
+  '-auth[Configure ProjectDiscovery Cloud API key]' \
+  '-pd[Upload/view output in ProjectDiscovery Cloud UI dashboard]' \
+  '-aid[Upload new assets to existing asset ID]:string' \
+  '-aname[Assets group name to set]:string' \
+  '-pdu[Upload HTTPX output file (jsonl) to ProjectDiscovery Cloud UI dashboard]' \
+  '-w[Load file with URL to include (one per line)]:file:_files' \
+  '-ws[Save the HTTP response file at a specific directory]:file:_files' \
+  '-ec[Disable automatic HTTP response headers parsing]' \
+  '-pfs[Path to file containing HTTP responses to parse]:file:_files' \
+  '-raw[Display HTTP raw response only]' \
+  '-wsr[Save HTTP responses in a specific format (only jsonl supported)]' \
+  '-lt[Request content length]:int' \
+  '-eurl[Specify external URL to include in the scan]' \
+  '-ev[Enable verbose debug mode]'

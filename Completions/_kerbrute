@@ -1,0 +1,71 @@
+#compdef kerbrute
+
+_arguments -C \
+  '1: :->command' \
+  '*::options:->options'
+
+case $state in
+  command)
+    _values "kerbrute command" \
+      'bruteforce[Bruteforce username:password combos]' \
+      'bruteuser[Bruteforce a single user password]' \
+      'passwordspray[Test a single password against a list of users]' \
+      'userenum[Enumerate valid domain usernames via Kerberos]' \
+      'version[Display version info]' \
+      'help[Help about any command]'
+    ;;
+  options)
+    case $line[1] in
+      bruteforce)
+        _arguments -C \
+          '--dc[Domain Controller location]:dc' \
+          '--delay[Delay in milliseconds]:delay' \
+          '-d[Full domain]:domain' \
+          '-o[Output file]:output file' \
+          '--safe[Abort if any user comes back as locked out]' \
+          '-t[Threads to use (default 10)]:threads' \
+          '-v[Verbose mode]' \
+          '-h[Help]'
+        ;;
+      bruteuser)
+        _arguments -C \
+          '--dc[Domain Controller location]:dc' \
+          '--delay[Delay in milliseconds]:delay' \
+          '-d[Full domain]:domain' \
+          '-o[Output file]:output file' \
+          '--safe[Abort if any user comes back as locked out]' \
+          '-t[Threads to use (default 10)]:threads' \
+          '-v[Verbose mode]' \
+          '-h[Help]' \
+          '1:password_list:_files' \
+          '2:username:username'
+        ;;
+      passwordspray)
+        _arguments -C \
+          '--dc[Domain Controller location]:dc' \
+          '--delay[Delay in milliseconds]:delay' \
+          '-d[Full domain]:domain' \
+          '-o[Output file]:output file' \
+          '--safe[Abort if any user comes back as locked out]' \
+          '-t[Threads to use (default 10)]:threads' \
+          '-v[Verbose mode]' \
+          '--user-as-pass[Spray every account with the username as the password]' \
+          '-h[Help]' \
+          '1:username_wordlist:_files' \
+          '2:password:password'
+        ;;
+      userenum)
+        _arguments -C \
+          '--dc[Domain Controller location]:dc' \
+          '--delay[Delay in milliseconds]:delay' \
+          '-d[Full domain]:domain' \
+          '-o[Output file]:output file' \
+          '--safe[Abort if any user comes back as locked out]' \
+          '-t[Threads to use (default 10)]:threads' \
+          '-v[Verbose mode]' \
+          '-h[Help]' \
+          '1:username_wordlist:_files'
+        ;;
+    esac
+    ;;
+esac

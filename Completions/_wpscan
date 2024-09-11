@@ -1,0 +1,81 @@
+#compdef wpscan
+
+_arguments \
+  '--url=[The URL of the blog to scan]:URL:_urls' \
+  '-h[Display the simple help and exit]' \
+  '--help[Display the simple help and exit]' \
+  '--hh[Display the full help and exit]' \
+  '--version[Display the version and exit]' \
+  '--ignore-main-redirect[Ignore the main redirect (if any) and scan the target url]' \
+  '-v[Verbose mode]' \
+  '--verbose[Verbose mode]' \
+  '--banner[Display the banner]' \
+  '--no-banner[Do not display the banner]' \
+  '--max-scan-duration=[Abort the scan if it exceeds the time provided in seconds]:seconds' \
+  '-o[Output to file]:output file:_files' \
+  '--output=[Output to file]:output file:_files' \
+  '-f[Output format]:format:(json cli-no-colour cli-no-color cli)' \
+  '--format=[Output format]:format:(json cli-no-colour cli-no-color cli)' \
+  '--detection-mode=[Default: mixed]:mode:(mixed passive aggressive)' \
+  '--scope=[Comma separated (sub-)domains to consider in scope]:domains' \
+  '--user-agent=[User-Agent to use]:value' \
+  '--ua=[User-Agent to use]:value' \
+  '--headers=[Additional headers to append in requests]:headers' \
+  '--vhost=[The virtual host (Host header) to use in requests]:value' \
+  '--random-user-agent[Use a random User-Agent for each scan]' \
+  '--rua[Use a random User-Agent for each scan]' \
+  '--user-agents-list=[List of User-Agents to use with --random-user-agent]:file:_files' \
+  '--http-auth=[HTTP authentication (login:password)]:login:password' \
+  '-t=[Max threads to use]:max threads' \
+  '--max-threads=[Max threads to use]:max threads' \
+  '--throttle=[Milliseconds to wait between requests]:milliseconds' \
+  '--request-timeout=[Request timeout in seconds]:seconds' \
+  '--connect-timeout=[Connection timeout in seconds]:seconds' \
+  '--disable-tls-checks[Disables SSL/TLS certificate verification]' \
+  '--proxy=[Proxy to use (protocol://IP:port)]:proxy' \
+  '--proxy-auth=[Proxy authentication (login:password)]:login:password' \
+  '--cookie-string=[Cookie string to use in requests]:cookie' \
+  '--cookie-jar=[File to read and write cookies]:file:_files' \
+  '--cache-ttl=[Cache time to live in seconds]:seconds' \
+  '--clear-cache[Clear the cache before the scan]' \
+  '--cache-dir=[Directory to store the cache]:path:_files' \
+  '--server=[Force the supplied server module to be loaded]:server:(apache iis nginx)' \
+  '--force[Do not check if the target is running WordPress or returns a 403]' \
+  '--update[Update the Database]' \
+  '--no-update[Do not update the Database]' \
+  '--api-token=[The WPScan API token to display vulnerability data]:token' \
+  '--wp-content-dir=[The wp-content directory if custom or not detected]:dir:_files' \
+  '--wp-plugins-dir=[The plugins directory if custom or not detected]:dir:_files' \
+  '--interesting-findings-detection=[Mode for interesting findings detection]:mode:(mixed passive aggressive)' \
+  '--wp-version-all[Check all WordPress version locations]' \
+  '--wp-version-detection=[Mode for WordPress version detection]:mode:(mixed passive aggressive)' \
+  '--main-theme-detection=[Mode for main theme detection]:mode:(mixed passive aggressive)' \
+  '-e=[Enumeration options]:enumeration:(vp ap p vt at t tt cb dbe u m)' \
+  '--enumerate=[Enumeration options]:enumeration:(vp ap p vt at t tt cb dbe u m)' \
+  '--exclude-content-based=[Exclude responses matching the Regexp during enumeration]:regexp' \
+  '--plugins-list=[List of plugins to enumerate]:file:_files' \
+  '--plugins-detection=[Mode to enumerate Plugins]:mode:(mixed passive aggressive)' \
+  '--plugins-version-all[Check all plugin version locations]' \
+  '--plugins-version-detection=[Mode to check plugin versions]:mode:(mixed passive aggressive)' \
+  '--themes-list=[List of themes to enumerate]:file:_files' \
+  '--themes-detection=[Mode to enumerate Themes]:mode:(mixed passive aggressive)' \
+  '--themes-version-all[Check all theme version locations]' \
+  '--themes-version-detection=[Mode to check theme versions]:mode:(mixed passive aggressive)' \
+  '--timthumbs-list=[List of timthumb locations]:file:_files' \
+  '--timthumbs-detection=[Mode to enumerate Timthumbs]:mode:(mixed passive aggressive)' \
+  '--config-backups-list=[List of config backup filenames]:file:_files' \
+  '--config-backups-detection=[Mode to enumerate config backups]:mode:(mixed passive aggressive)' \
+  '--db-exports-list=[List of DB exports to enumerate]:file:_files' \
+  '--db-exports-detection=[Mode to enumerate DB exports]:mode:(mixed passive aggressive)' \
+  '--medias-detection=[Mode to enumerate Medias]:mode:(mixed passive aggressive)' \
+  '--users-list=[List of users to check during enumeration]:file:_files' \
+  '--users-detection=[Mode to enumerate Users]:mode:(mixed passive aggressive)' \
+  '--exclude-usernames=[Exclude usernames matching Regexp]:regexp' \
+  '-P=[List of passwords to use during password attack]:file:_files' \
+  '--passwords=[List of passwords to use during password attack]:file:_files' \
+  '-U=[List of usernames to use during password attack]:file:_files' \
+  '--usernames=[List of usernames to use during password attack]:file:_files' \
+  '--multicall-max-passwords=[Max passwords to send by request]:max passwords' \
+  '--password-attack=[Force the supplied attack]:attack:(wp-login xmlrpc xmlrpc-multicall)' \
+  '--login-uri=[The URI of the login page if different from /wp-login.php]:uri' \
+  '--stealthy[Alias for --random-user-agent --detection-mode passive --plugins-version-detection passive]'

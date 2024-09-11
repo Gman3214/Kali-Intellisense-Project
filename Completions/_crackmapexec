@@ -1,0 +1,331 @@
+#compdef crackmapexec
+
+_arguments -C \
+  '1:protocol:->protocol' \
+  '*::options:->options'
+
+case $state in
+  protocol)
+    _values "crackmapexec protocol" \
+      'mssql[MSSQL protocol]' \
+      'smb[SMB protocol]' \
+      'ssh[SSH protocol]' \
+      'winrm[WINRM protocol]' \
+      'ldap[LDAP protocol]' \
+      'rdp[RDP protocol]' \
+      'ftp[FTP protocol]'
+    ;;
+  options)
+    case $line[1] in
+      mssql)
+        _arguments -C \
+          '-h[Show help message and exit]' \
+          '--help[Show help message and exit]' \
+          '-id[Database credential ID(s) to use for authentication]:CRED_ID [CRED_ID ...]' \
+          '-u[Username(s) or file(s) containing usernames]:USERNAME [USERNAME ...]' \
+          '-p[Password(s) or file(s) containing passwords]:PASSWORD [PASSWORD ...]' \
+          '-k[Use Kerberos authentication]' \
+          '--kerberos[Use Kerberos authentication]' \
+          '--use-kcache[Use Kerberos authentication from ccache file (KRB5CCNAME)]' \
+          '--export[Export result into a file]:EXPORT [EXPORT ...]' \
+          '--aesKey[AES key to use for Kerberos Authentication (128 or 256 bits)]:AESKEY [AESKEY ...]' \
+          '--kdcHost[FQDN of the domain controller]:KDCHOST' \
+          '--gfail-limit[Max number of global failed login attempts]:LIMIT' \
+          '--ufail-limit[Max number of failed login attempts per username]:LIMIT' \
+          '--fail-limit[Max number of failed login attempts per host]:LIMIT' \
+          '-M[Module to use]:MODULE' \
+          '--module[Module to use]:MODULE' \
+          '-o[Module options]:MODULE_OPTION [MODULE_OPTION ...]' \
+          '-L[List available modules]' \
+          '--list-modules[List available modules]' \
+          '--options[Display module options]' \
+          '--server[Use the selected server]:{https,http}' \
+          '--server-host[IP to bind the server to]:HOST' \
+          '--server-port[Start the server on the specified port]:PORT' \
+          '--connectback-host[IP for the remote system to connect back to]:CHOST' \
+          '-d[Domain name]:DOMAIN' \
+          '--local-auth[Authenticate locally to each target]' \
+          '-H[NTLM hash(es) or file(s) containing NTLM hashes]:HASH [HASH ...]' \
+          '--hash[NTLM hash(es) or file(s) containing NTLM hashes]:HASH [HASH ...]' \
+          '--port[MSSQL port (default: 1433)]:PORT' \
+          '-q[Execute the specified query against the MSSQL DB]:QUERY' \
+          '--query[Execute the specified query against the MSSQL DB]:QUERY' \
+          '--no-bruteforce[No spray when using file for username and password (user1 => password1, user2 => password2)]' \
+          '--continue-on-success[Continue authentication attempts even after successes]' \
+          '--force-ps32[Force the PowerShell command to run in a 32-bit process]' \
+          '--no-output[Do not retrieve command output]' \
+          '-x[Execute the specified command]:COMMAND' \
+          '-X[Execute the specified PowerShell command]:PS_COMMAND' \
+          '--obfs[Obfuscate PowerShell scripts]' \
+          '--clear-obfscripts[Clear all cached obfuscated PowerShell scripts]' \
+          '--put-file[Put a local file into remote target]:file:_files' \
+          '--get-file[Get a remote file]:file:_files'
+        ;;
+      smb)
+        _arguments -C \
+          '-h[Show help message and exit]' \
+          '--help[Show help message and exit]' \
+          '-id[Database credential ID(s) to use for authentication]:CRED_ID [CRED_ID ...]' \
+          '-u[Username(s) or file(s) containing usernames]:USERNAME [USERNAME ...]' \
+          '-p[Password(s) or file(s) containing passwords]:PASSWORD [PASSWORD ...]' \
+          '-k[Use Kerberos authentication]' \
+          '--kerberos[Use Kerberos authentication]' \
+          '--use-kcache[Use Kerberos authentication from ccache file (KRB5CCNAME)]' \
+          '--export[Export result into a file]:EXPORT [EXPORT ...]' \
+          '--aesKey[AES key to use for Kerberos Authentication (128 or 256 bits)]:AESKEY [AESKEY ...]' \
+          '--kdcHost[FQDN of the domain controller]:KDCHOST' \
+          '--gfail-limit[Max number of global failed login attempts]:LIMIT' \
+          '--ufail-limit[Max number of failed login attempts per username]:LIMIT' \
+          '--fail-limit[Max number of failed login attempts per host]:LIMIT' \
+          '-M[Module to use]:MODULE' \
+          '--module[Module to use]:MODULE' \
+          '-o[Module options]:MODULE_OPTION [MODULE_OPTION ...]' \
+          '-L[List available modules]' \
+          '--list-modules[List available modules]' \
+          '--options[Display module options]' \
+          '--server[Use the selected server]:{http,https}' \
+          '--server-host[IP to bind the server to]:HOST' \
+          '--server-port[Start the server on the specified port]:PORT' \
+          '--connectback-host[IP for the remote system to connect back to]:CHOST' \
+          '-H[NTLM hash(es) or file(s) containing NTLM hashes]:HASH [HASH ...]' \
+          '--hash[NTLM hash(es) or file(s) containing NTLM hashes]:HASH [HASH ...]' \
+          '--no-bruteforce[No spray when using file for username and password (user1 => password1, user2 => password2)]' \
+          '-d[Domain to authenticate to]:DOMAIN' \
+          '--local-auth[Authenticate locally to each target]' \
+          '--port[SMB port]:{139,445}' \
+          '--share[Specify a share]:SHARE (default: C$)' \
+          '--smb-server-port[Specify a server port for SMB]:SMB_SERVER_PORT' \
+          '--gen-relay-list[Outputs all hosts that dont require SMB signing to the specified file]:OUTPUT_FILE' \
+          '--continue-on-success[Continues authentication attempts even after successes]' \
+          '--smb-timeout[SMB connection timeout (default: 2 seconds)]:SMB_TIMEOUT' \
+          '--laps[LAPS authentication]' \
+          '--sam[Dump SAM hashes from target systems]' \
+          '--lsa[Dump LSA secrets from target systems]' \
+          '--ntds[Dump the NTDS.dit from target DCs using the specified method (default: drsuapi)]:{vss,drsuapi}' \
+          '--enabled[Only dump enabled targets from DC]' \
+          '--user[Dump selected user from DC]:USERNTDS' \
+          '--shares[Enumerate shares and access]' \
+          '--sessions[Enumerate active sessions]' \
+          '--disks[Enumerate disks]' \
+          '--loggedon-users-filter[Only search for specific user, works with regex]:LOGGEDON_USERS_FILTER' \
+          '--loggedon-users[Enumerate logged on users]' \
+          '--users[Enumerate domain users (if a user is specified, only its information is queried)]:USER' \
+          '--groups[Enumerate domain groups (if a group is specified, its members are enumerated)]:GROUP' \
+          '--computers[Enumerate computer users]:COMPUTER' \
+          '--local-groups[Enumerate local groups (if a group is specified, its members are enumerated)]:GROUP' \
+          '--pass-pol[Dump password policy]' \
+          '--rid-brute[Enumerate users by brute-forcing RIDs (default: 4000)]:MAX_RID' \
+          '--wmi[Issue the specified WMI query]:QUERY' \
+          '--wmi-namespace[WMI Namespace (default: root\\cimv2)]:NAMESPACE' \
+          '--spider[Share to spider]:SHARE' \
+          '--spider-folder[Folder to spider (default: root share directory)]:FOLDER' \
+          '--content[Enable file content searching]' \
+          '--exclude-dirs[Directories to exclude from spidering]:DIR_LIST' \
+          '--pattern[Pattern(s) to search for in folders, filenames, and file content]:PATTERN [PATTERN ...]' \
+          '--regex[Regex(s) to search for in folders, filenames, and file content]:REGEX [REGEX ...]' \
+          '--depth[Max spider recursion depth (default: infinity)]:DEPTH' \
+          '--only-files[Only spider files]' \
+          '--put-file[Put a local file into remote target]:FILE FILE:_files' \
+          '--get-file[Get a remote file]:FILE FILE:_files' \
+          '--exec-method[Method to execute the command (default: wmiexec)]:{wmiexec,atexec,mmcexec,smbexec}' \
+          '--codec[Set encoding used (codec) from the targets output (default: "utf-8")]:CODEC' \
+          '--force-ps32[Force the PowerShell command to run in a 32-bit process]' \
+          '--no-output[Do not retrieve command output]' \
+          '-x[Execute the specified command]:COMMAND' \
+          '-X[Execute the specified PowerShell command]:PS_COMMAND' \
+          '--obfs[Obfuscate PowerShell scripts]' \
+          '--amsi-bypass[File with a custom AMSI bypass]:FILE:_files' \
+          '--clear-obfscripts[Clear all cached obfuscated PowerShell scripts]'
+
+        ;;
+      ssh)
+        _arguments -C \
+          '-h[Show help message and exit]' \
+          '--help[Show help message and exit]' \
+          '-id[Database credential ID(s) to use for authentication]:CRED_ID [CRED_ID ...]' \
+          '-u[Username(s) or file(s) containing usernames]:USERNAME [USERNAME ...]' \
+          '-p[Password(s) or file(s) containing passwords]:PASSWORD [PASSWORD ...]' \
+          '-k[Use Kerberos authentication]' \
+          '--kerberos[Use Kerberos authentication]' \
+          '--use-kcache[Use Kerberos authentication from ccache file (KRB5CCNAME)]' \
+          '--export[Export result into a file]:EXPORT [EXPORT ...]' \
+          '--aesKey[AES key to use for Kerberos Authentication (128 or 256 bits)]:AESKEY [AESKEY ...]' \
+          '--kdcHost[FQDN of the domain controller]:KDCHOST' \
+          '--gfail-limit[Max number of global failed login attempts]:LIMIT' \
+          '--ufail-limit[Max number of failed login attempts per username]:LIMIT' \
+          '--fail-limit[Max number of failed login attempts per host]:LIMIT' \
+          '-M[Module to use]:MODULE' \
+          '--module[Module to use]:MODULE' \
+          '-o[Module options]:MODULE_OPTION [MODULE_OPTION ...]' \
+          '-L[List available modules]' \
+          '--list-modules[List available modules]' \
+          '--options[Display module options]' \
+          '--server[Use the selected server]:{http,https}' \
+          '--server-host[IP to bind the server to]:HOST' \
+          '--server-port[Start the server on the specified port]:PORT' \
+          '--connectback-host[IP for the remote system to connect back to]:CHOST' \
+          '--no-bruteforce[No spray when using file for username and password (user1 => password1, user2 => password2)]' \
+          '--key-file[Authenticate using the specified private key. Treats the password parameter as the keys passphrase]:KEY_FILE:_files' \
+          '--port[SSH port (default: 22)]:PORT' \
+          '--continue-on-success[Continue authentication attempts even after successes]' \
+          '--no-output[Do not retrieve command output]' \
+          '-x[Execute the specified command]:COMMAND'
+        ;;
+      winrm)
+        _arguments -C \
+          '-h[Show help message and exit]' \
+          '--help[Show help message and exit]' \
+          '-id[Database credential ID(s) to use for authentication]:CRED_ID [CRED_ID ...]' \
+          '-u[Username(s) or file(s) containing usernames]:USERNAME [USERNAME ...]' \
+          '-p[Password(s) or file(s) containing passwords]:PASSWORD [PASSWORD ...]' \
+          '-k[Use Kerberos authentication]' \
+          '--kerberos[Use Kerberos authentication]' \
+          '--use-kcache[Use Kerberos authentication from ccache file (KRB5CCNAME)]' \
+          '--export[Export result into a file]:EXPORT [EXPORT ...]' \
+          '--aesKey[AES key to use for Kerberos Authentication (128 or 256 bits)]:AESKEY [AESKEY ...]' \
+          '--kdcHost[FQDN of the domain controller]:KDCHOST' \
+          '--gfail-limit[Max number of global failed login attempts]:LIMIT' \
+          '--ufail-limit[Max number of failed login attempts per username]:LIMIT' \
+          '--fail-limit[Max number of failed login attempts per host]:LIMIT' \
+          '-M[Module to use]:MODULE' \
+          '--module[Module to use]:MODULE' \
+          '-o[Module options]:MODULE_OPTION [MODULE_OPTION ...]' \
+          '-L[List available modules]' \
+          '--list-modules[List available modules]' \
+          '--options[Display module options]' \
+          '--server[Use the selected server]:{http,https}' \
+          '--server-host[IP to bind the server to]:HOST' \
+          '--server-port[Start the server on the specified port]:PORT' \
+          '--connectback-host[IP for the remote system to connect back to]:CHOST' \
+          '-H[NTLM hash(es) or file(s) containing NTLM hashes]:HASH [HASH ...]' \
+          '--hash[NTLM hash(es) or file(s) containing NTLM hashes]:HASH [HASH ...]' \
+          '--no-bruteforce[No spray when using file for username and password (user1 => password1, user2 => password2)]' \
+          '--continue-on-success[Continue authentication attempts even after successes]' \
+          '--port[Custom WinRM port]:PORT' \
+          '--ssl[Connect to SSL Enabled WINRM]' \
+          '--ignore-ssl-cert[Ignore Certificate Verification]' \
+          '--laps[LAPS authentication]' \
+          '-d[Domain to authenticate to]:DOMAIN' \
+          '--local-auth[Authenticate locally to each target]' \
+          '--sam[Dump SAM hashes from target systems]' \
+          '--lsa[Dump LSA secrets from target systems]' \
+          '--no-output[Do not retrieve command output]' \
+          '-x[Execute the specified command]:COMMAND' \
+          '-X[Execute the specified PowerShell command]:PS_COMMAND'
+        ;;  
+      ldap)
+        _arguments -C \
+          '-h[Show help message and exit]' \
+          '--help[Show help message and exit]' \
+          '-id[Database credential ID(s) to use for authentication]:CRED_ID [CRED_ID ...]' \
+          '-u[Username(s) or file(s) containing usernames]:USERNAME [USERNAME ...]' \
+          '-p[Password(s) or file(s) containing passwords]:PASSWORD [PASSWORD ...]' \
+          '-k[Use Kerberos authentication]' \
+          '--kerberos[Use Kerberos authentication]' \
+          '--use-kcache[Use Kerberos authentication from ccache file (KRB5CCNAME)]' \
+          '--export[Export result into a file]:EXPORT [EXPORT ...]' \
+          '--aesKey[AES key to use for Kerberos Authentication (128 or 256 bits)]:AESKEY [AESKEY ...]' \
+          '--kdcHost[FQDN of the domain controller]:KDCHOST' \
+          '--gfail-limit[Max number of global failed login attempts]:LIMIT' \
+          '--ufail-limit[Max number of failed login attempts per username]:LIMIT' \
+          '--fail-limit[Max number of failed login attempts per host]:LIMIT' \
+          '-M[Module to use]:MODULE' \
+          '--module[Module to use]:MODULE' \
+          '-o[Module options]:MODULE_OPTION [MODULE_OPTION ...]' \
+          '-L[List available modules]' \
+          '--list-modules[List available modules]' \
+          '--options[Display module options]' \
+          '--server[Use the selected server]:{http,https}' \
+          '--server-host[IP to bind the server to]:HOST' \
+          '--server-port[Start the server on the specified port]:PORT' \
+          '--connectback-host[IP for the remote system to connect back to]:CHOST' \
+          '-H[NTLM hash(es) or file(s) containing NTLM hashes]:HASH [HASH ...]' \
+          '--hash[NTLM hash(es) or file(s) containing NTLM hashes]:HASH [HASH ...]' \
+          '--no-bruteforce[No spray when using file for username and password (user1 => password1, user2 => password2)]' \
+          '--continue-on-success[Continue authentication attempts even after successes]' \
+          '--port[LDAP port]:{636,389}' \
+          '--no-smb[No SMB connection]' \
+          '-d[Domain to authenticate to]:DOMAIN' \
+          '--local-auth[Authenticate locally to each target]' \
+          '--asreproast[Get AS_REP response ready to crack with hashcat]:ASREPROAST' \
+          '--kerberoasting[Get TGS ticket ready to crack with hashcat]:KERBEROASTING' \
+          '--trusted-for-delegation[Get the list of users and computers with flag TRUSTED_FOR_DELEGATION]' \
+          '--password-not-required[Get the list of users with flag PASSWD_NOTREQD]' \
+          '--admin-count[Get objects that have the value adminCount=1]' \
+          '--users[Enumerate enabled domain users]' \
+          '--groups[Enumerate domain groups]' \
+          '--gmsa[Enumerate GMSA passwords]' \
+          '--get-sid[Get domain SID]'
+        ;;
+      rdp)
+        _arguments -C \
+          '-h[Show help message and exit]' \
+          '--help[Show help message and exit]' \
+          '-id[Database credential ID(s) to use for authentication]:CRED_ID [CRED_ID ...]' \
+          '-u[Username(s) or file(s) containing usernames]:USERNAME [USERNAME ...]' \
+          '-p[Password(s) or file(s) containing passwords]:PASSWORD [PASSWORD ...]' \
+          '-k[Use Kerberos authentication]' \
+          '--kerberos[Use Kerberos authentication]' \
+          '--use-kcache[Use Kerberos authentication from ccache file (KRB5CCNAME)]' \
+          '--export[Export result into a file]:EXPORT [EXPORT ...]' \
+          '--aesKey[AES key to use for Kerberos Authentication (128 or 256 bits)]:AESKEY [AESKEY ...]' \
+          '--kdcHost[FQDN of the domain controller]:KDCHOST' \
+          '--gfail-limit[Max number of global failed login attempts]:LIMIT' \
+          '--ufail-limit[Max number of failed login attempts per username]:LIMIT' \
+          '--fail-limit[Max number of failed login attempts per host]:LIMIT' \
+          '-M[Module to use]:MODULE' \
+          '--module[Module to use]:MODULE' \
+          '-o[Module options]:MODULE_OPTION [MODULE_OPTION ...]' \
+          '-L[List available modules]' \
+          '--list-modules[List available modules]' \
+          '--options[Display module options]' \
+          '--server[Use the selected server]:{http,https}' \
+          '--server-host[IP to bind the server to]:HOST' \
+          '--server-port[Start the server on the specified port]:PORT' \
+          '--connectback-host[IP for the remote system to connect back to]:CHOST' \
+          '-H[NTLM hash(es) or file(s) containing NTLM hashes]:HASH [HASH ...]' \
+          '--hash[NTLM hash(es) or file(s) containing NTLM hashes]:HASH [HASH ...]' \
+          '--no-bruteforce[No spray when using file for username and password (user1 => password1, user2 => password2)]' \
+          '--continue-on-success[Continue authentication attempts even after successes]' \
+          '--port[Custom RDP port]:PORT' \
+          '--rdp-timeout[RDP timeout on socket connection]:RDP_TIMEOUT' \
+          '--nla-screenshot[Screenshot RDP login prompt if NLA is disabled]' \
+          '-d[Domain to authenticate to]:DOMAIN' \
+          '--local-auth[Authenticate locally to each target]' \
+          '--screenshot[Screenshot RDP if connection successful]' \
+          '--screentime[Time to wait for desktop image]:SCREENTIME' \
+          '--res[Resolution in WIDTHxHEIGHT format (Default: 1024x768)]:RES'
+        ;;
+      ftp)
+        _arguments -C \
+          '-h[Show help message and exit]' \
+          '--help[Show help message and exit]' \
+          '-id[Database credential ID(s) to use for authentication]:CRED_ID [CRED_ID ...]' \
+          '-u[Username(s) or file(s) containing usernames]:USERNAME [USERNAME ...]' \
+          '-p[Password(s) or file(s) containing passwords]:PASSWORD [PASSWORD ...]' \
+          '-k[Use Kerberos authentication]' \
+          '--kerberos[Use Kerberos authentication]' \
+          '--use-kcache[Use Kerberos authentication from ccache file (KRB5CCNAME)]' \
+          '--export[Export result into a file]:EXPORT [EXPORT ...]' \
+          '--aesKey[AES key to use for Kerberos Authentication (128 or 256 bits)]:AESKEY [AESKEY ...]' \
+          '--kdcHost[FQDN of the domain controller]:KDCHOST' \
+          '--gfail-limit[Max number of global failed login attempts]:LIMIT' \
+          '--ufail-limit[Max number of failed login attempts per username]:LIMIT' \
+          '--fail-limit[Max number of failed login attempts per host]:LIMIT' \
+          '-M[Module to use]:MODULE' \
+          '--module[Module to use]:MODULE' \
+          '-o[Module options]:MODULE_OPTION [MODULE_OPTION ...]' \
+          '-L[List available modules]' \
+          '--list-modules[List available modules]' \
+          '--options[Display module options]' \
+          '--server[Use the selected server]:{http,https}' \
+          '--server-host[IP to bind the server to]:HOST' \
+          '--server-port[Start the server on the specified port]:PORT' \
+          '--connectback-host[IP for the remote system to connect back to]:CHOST' \
+          '--no-bruteforce[No spray when using file for username and password (user1 => password1, user2 => password2)]' \
+          '--port[FTP port (default: 21)]:PORT' \
+          '--continue-on-success[Continue authentication attempts even after successes]'
+        ;;
+    esac
+    ;;
+esac

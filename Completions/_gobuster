@@ -1,8 +1,5 @@
 #compdef gobuster
 
-# Define the completion options for different modes of gobuster
-local curcontext="$curcontext" state line
-
 _arguments -C \
   '1: :->mode' \
   '*::options:->options'
