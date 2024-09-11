@@ -11,7 +11,7 @@ _ffuf_examples() {
   )
 
   _wanted examples expl 'FFUF example commands' \
-      compadd -M 'm:{a-zA-Z}={A-Za-z}' -a examples
+      compadd -Q -- "${examples[@]}"
 }
 _arguments \
   '1:example command:_ffuf_examples' \
