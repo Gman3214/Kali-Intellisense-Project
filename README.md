@@ -1,6 +1,8 @@
 # The Kali Intellisense Project (KIP) ⚡
 Current Build v0.2
 
+![Untitled video (1)](https://github.com/user-attachments/assets/2386400c-1cc7-4c97-addb-804b3e282f5e)
+
 ## Overview
 
 The **Kali Intellisense Project** is designed to enhance the user experience for penetration testers using Kali Linux by providing in-terminal IntelliSense-like functionality. This project builds on top of the popular [zsh-autocomplete](https://github.com/marlonrichert/zsh-autocomplete) package, extending its capabilities to offer additional compatibility and features tailored specifically for Kali Linux users.
@@ -12,8 +14,15 @@ As a penetration tester, it’s challenging to keep up with the constant flow of
 ## Features
 
 - **Extended Zsh Compatibility**: Builds upon zsh-autocomplete, offering additional support for Kali-specific tools and commands.
-- **Autocomplete for Penetration Testing Tools**: Includes autocomplete for a wide range of commonly used penetration testing tools along with their flags and options.
+
+![image](https://github.com/user-attachments/assets/04b5007b-cd9b-405a-b562-289d8d0b7764)
+
+- **Realtime Autocomplete for Penetration Testing Tools**: Includes autocomplete for a wide range of commonly used penetration testing tools along with their flags, options and examples.
+
+![image](https://github.com/user-attachments/assets/9bd111d4-a847-44c5-8538-9e38ce71cf50)
+
 - **Easy Setup**: A simple, automated setup script ensures users can quickly integrate this functionality into their existing environments.
+
 
 ## How to Install
 
